@@ -22,7 +22,7 @@ for i in listap:
 listafinal = []
 for pais in dataxp:
     for column in pais.columns[3:]:
-
+        listafinal.append(column)
     # print(i[0:1])
 
     # print(i[5:6])
