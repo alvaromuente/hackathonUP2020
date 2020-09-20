@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_json('hdro_api_all.json')
+data = pd.read_json('data/hdro_api_all.json')
 
 listapaises = data.country_code
 listapaises = listapaises.drop_duplicates()
@@ -18,4 +18,5 @@ dataper2018 = dataper[dataper.year == 2018]
 datausa = data[data.country_code == 'USA']
 datausa2018 = datausa[datausa.year == 2018]
 
-data.to_csv('data.csv', index=True, header=True)
+data.to_csv('data/data.csv', index=True, header=True)
+# esta data se cargo a power query para convertirse a data chevere

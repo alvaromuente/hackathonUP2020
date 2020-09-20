@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-data = pd.read_csv('datachevere2.csv')
+data = pd.read_csv('data/datachevere2.csv')
 
 percent_missing = data.isnull().sum() * 100 / len(data)
 missing_value_df = pd.DataFrame({'column_name': data.columns,
@@ -30,13 +30,13 @@ for pais in borrarfil:
 # Intento numero 1 de cluster
 data3 = data2.copy()
 data3 = data3.fillna(0)
-data3.to_csv('datafinal1.csv')
+data3.to_csv('data/datafinal1.csv')
 
 # Intento numero 2 de cluster
 data4 = data2.copy()
 data4 = data4.iloc[:, 3:].apply(lambda x: x.fillna(x.mean()))
 data4 = pd.concat([data2.iloc[:, 0:3], data4], axis=1).reset_index()
 data4.drop(['index'], axis=1, inplace=True)
-data4.to_csv('datafinal2.csv')
+data4.to_csv('data/datafinal2.csv')
 
-dataval = data.iloc[:, 3:].values
+#dataval = data.iloc[:, 3:].values

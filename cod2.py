@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_csv('datachevere.csv')
+data = pd.read_csv('data/datachevere.csv')
 data = data[data.year != 2020]
 
 data = data.sort_values(by=['country_code', 'year'])
@@ -22,4 +22,4 @@ for i in range(0, 6):
 
 data2 = data2.groupby(['country_code', 'country_name', 'year']).first()
 
-data2.to_csv('datachevere2.csv', index=True, header=True)
+data2.to_csv('data/datachevere2.csv', index=True, header=True)
