@@ -31,4 +31,12 @@ for pais in borrarfil:
 data3 = data2.copy()
 data3 = data3.fillna(0)
 data3.to_csv('datafinal1.csv')
+
+# Intento numero 2 de cluster
+data4 = data2.copy()
+data4 = data4.iloc[:, 3:].apply(lambda x: x.fillna(x.mean()))
+data4 = pd.concat([data2.iloc[:, 0:3], data4], axis=1).reset_index()
+data4.drop(['index'], axis=1, inplace=True)
+data4.to_csv('datafinal2.csv')
+
 dataval = data.iloc[:, 3:].values
