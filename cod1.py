@@ -18,4 +18,4 @@ dataper2018 = dataper[dataper.year == 2018]
 datausa = data[data.country_code == 'USA']
 datausa2018 = datausa[datausa.year == 2018]
 
-data.to_csv ('data.csv', index = True, header=True)
+data.to_csv('data.csv', index=True, header=True)

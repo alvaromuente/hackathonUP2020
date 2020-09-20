@@ -10,22 +10,16 @@ listap = data.country_code
 listap = listap.drop_duplicates()
 listap = listap.reset_index(drop=True)
 
-dataxp = []
-for i in listap:
-    temp = data[data.country_code == i]
-    dataxp.append(temp)
+listay = data.year
+listay = listay.drop_duplicates()
+listay = listay.reset_index(drop=True)
 
-# for i in range(len(dataxp)):
-#     if not dataxp[i].shape == (29, 149):
-#         print(data['country_code'][0:1]
+data2 = data
 
-listafinal = []
-for pais in dataxp:
-    for column in pais.columns[3:]:
-        listafinal.append(column)
-    # print(i[0:1])
+for i in range(0, 6):
+    for j in range(0, 4):
+        data2['year'].replace(1991 + j + i * 5, 1990 + i * 5, inplace=True)
 
-    # print(i[5:6])
-    # print(i[10:11])
-    # print(i[15:16])
-    # print(i[20:21])
+data2 = data2.groupby(['country_code', 'country_name', 'year']).first()
+
+data2.to_csv('datachevere2.csv', index=True, header=True)
